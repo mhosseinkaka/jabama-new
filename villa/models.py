@@ -6,12 +6,12 @@ class Owner(models.Model):
     national_id = models.CharField(max_length=11, unique=True)
     email = models.EmailField(null=True, blank=True) #optional
 
+
 class User(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     national_id = models.CharField(max_length=11, unique=True)
     email = models.EmailField(null=True, blank=True) #optional
-
 
 
 class Villa(models.Model):
@@ -24,3 +24,15 @@ class Villa(models.Model):
     is_for_parties = models.BooleanField(default=False)
     owner =models.ForeignKey(to=Owner, on_delete=models.CASCADE)
     user =models.ForeignKey(to=User, on_delete=models.CASCADE)
+
+
+class Rent(models.Model):
+    '''
+    برای ثبت درخواست نیاز به ایجاد یک کلاس جدید بود
+    '''
+    place = models.ForeignKey(to=Villa, on_delete=models.CASCADE)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    Owner = models.ForeignKey(to=Owner, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    payment = models.BooleanField()

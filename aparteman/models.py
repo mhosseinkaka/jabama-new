@@ -24,3 +24,14 @@ class Place(models.Model):
     is_for_parties = models.BooleanField(default=False)
     owner =models.ForeignKey(to=Owner, on_delete=models.CASCADE)
     user =models.ForeignKey(to=User, on_delete=models.CASCADE)
+
+class Rent(models.Model):
+    '''
+    برای ثبت درخواست نیاز به ایجاد یک کلاس جدید بود
+    '''
+    place = models.ForeignKey(to=Place, on_delete=models.CASCADE)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    Owner = models.ForeignKey(to=Owner, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    payment = models.BooleanField()
