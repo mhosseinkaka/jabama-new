@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
-# Create your views here.
+from django.http.response import HttpResponse, JsonResponse
+from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from aparteman.models import Place
+from aparteman.serializers import ApartemanListSerializer
+# Create your views here.     
 
 def aparteman_view_royayee(request):
     data = [
@@ -22,6 +25,19 @@ def aparteman_view_royayee(request):
                 "type":"با ویو رویایی",
                 "data":data
                 })
+
+class ApartemanList(ListAPIView):
+    queryset = Place.objects.all()
+    serializer_class = ApartemanListSerializer
+
+class ApartemanLCView(ListCreateAPIView):
+    queryset = Place.objects.all()
+    serializer_class = ApartemanListSerializer
+
+class ApartemanRUDview(RetrieveUpdateDestroyAPIView):
+    queryset = Place.objects.all()
+    serializer_class = ApartemanListSerializer
+
 def aparteman_sargarmi(request):
     data = [
         {

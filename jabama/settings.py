@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "aparteman",
     "boomgardi",
     "colbe",
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
