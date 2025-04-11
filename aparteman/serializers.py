@@ -3,7 +3,7 @@ from aparteman.models import Place
 
 class ApartemanListSerializer(ModelSerializer):
     user = StringRelatedField()
-    owener = StringRelatedField()
+    owner = StringRelatedField()
     class Meta:
         model = Place
         fields = ['name', 'user', 'owner']
