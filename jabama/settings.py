@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +45,6 @@ INSTALLED_APPS = [
     "colbe",
     'rest_framework',
     'rest_framework_simplejwt',
-
 ]
 
 MIDDLEWARE = [
@@ -137,8 +138,9 @@ REST_FRAMEWORK = {
     )
     
 }
-from datetime import timedelta
+
+
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7)
+    "ACCESS_TOKEN_LIFETIME": timedelta(day=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
