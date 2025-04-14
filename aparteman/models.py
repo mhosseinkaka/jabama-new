@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+STATUS_CHOICES = [
+    ('available', 'موجود'),
+    ('rented', 'اجاره داده شده'),
+]
+
 class Owner(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
@@ -23,6 +28,8 @@ class Place(models.Model):
     has_entertainment = models.BooleanField(default=False)
     allows_pets = models.BooleanField(default=False)
     is_for_parties = models.BooleanField(default=False)
+    image = models.ImageField(upload_to="media" ,null=True, blank=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='available')
     owner =models.ForeignKey(to=Owner, on_delete=models.CASCADE, related_name="owner_aparteman")
     user =models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="user_aparteman")
 
