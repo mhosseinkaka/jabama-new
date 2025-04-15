@@ -1,4 +1,3 @@
-
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 from aparteman.models import Place
 from aparteman.serializers import ApartemanListSerializer, ApartemanSerializer
@@ -12,8 +11,8 @@ class ApartemanList(ListAPIView):
     queryset = Place.objects.all()
     serializer_class = ApartemanListSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['has_pool', 'is_beachfront', 'is_for_parties']
-    search_fields = ['name', 'owner']
+    filterset_fields = ['has_pool', 'is_beachfront', 'is_for_parties', 'status']
+    search_fields = ['name', 'owner', 'location', 'status', 'price']
 
 class ApartemanCreateView(CreateAPIView):
     permission_classes = [IsAdminUser]

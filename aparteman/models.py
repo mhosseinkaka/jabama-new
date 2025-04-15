@@ -29,6 +29,8 @@ class Place(models.Model):
     allows_pets = models.BooleanField(default=False)
     is_for_parties = models.BooleanField(default=False)
     image = models.ImageField(upload_to="aparteman" ,null=True, blank=True)
+    location = models.CharField(max_length=100, default='Tehran')
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='available')
     owner =models.ForeignKey(to=Owner, on_delete=models.CASCADE, related_name="owner_aparteman")
     user =models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="user_aparteman")

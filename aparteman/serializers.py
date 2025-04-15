@@ -6,7 +6,7 @@ class ApartemanListSerializer(ModelSerializer):
     owner = StringRelatedField()
     class Meta:
         model = Place
-        fields = ['name', 'user', 'owner']
+        fields = ['name', 'user', 'owner', 'location']
 
 class ApartemanSerializer(ModelSerializer):
     class Meta:
