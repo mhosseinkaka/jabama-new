@@ -29,7 +29,6 @@ class CreatVillaView(CreateAPIView):
         
         serializer.save(
             user = self.request.user
-            
         )
     
     
