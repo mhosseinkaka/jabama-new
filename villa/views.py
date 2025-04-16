@@ -39,6 +39,7 @@ class ListVillaView(ListAPIView):
     ]
     filterset_fields = ["name", "has_pool"]
     search_fields = ["name"]
+    ordering_fields = ['price']
 
 
 class CreatVillaView(CreateAPIView):
