@@ -25,7 +25,9 @@ class Villa(models.Model):
     allows_pets = models.BooleanField(default=False)
     is_for_parties = models.BooleanField(default=False)
     user =models.ForeignKey(to=User, on_delete=models.CASCADE)
-    
+    price = models.FloatField(default=0)
+
+
 
 class Rent(models.Model):
     '''

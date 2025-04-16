@@ -1,9 +1,7 @@
 from rest_framework.permissions import BasePermission
 
 
-class Is_owner(BasePermission):
-    
-    
+class IsOwner(BasePermission):
     
     def has_permission(self,request,view):
         
@@ -12,3 +10,5 @@ class Is_owner(BasePermission):
         else :
             return False 
     
+
+
